@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shuvam's Animated Portfolio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, mediumpurple, lightblue);
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px;
+    color: white;
+}
+
+/* SECTIONS */
+.section, .profile {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* PROFILE */
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.profile img {
+    width: 250px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.profile-text {
+    max-width: 500px;
+    margin: 10px;
+}
+
+/* SECTION BOX */
+.section {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.card {
+    width: 250px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f3f3f3;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background: #e0d4ff;
+}
+
+/* BUTTON */
+a.button {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    background: mediumpurple;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+a.button:hover {
+    background: purple;
+}
+
+/* HEADER TEXT ANIMATION */
+header h1 {
+    animation: fadeDown 1.2s ease;
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Shuvam Sarkar</h1>
+    <p>Student | Science Enthusiast | Future Researcher</p>
+</header>
+
+<!-- PROFILE -->
+<div class="profile">
+    <img src="20260128_125559.jpg" alt="Shuvam photo">
+
+    <div class="profile-text">
+        <h2>About Me</h2>
+        <p>
+            I am interested in science, engineering, robotics, and experiments.
+            I enjoy building projects and learning new technologies.
+        </p>
+
+        <a class="button" href="https://www.youtube.com/channel/UCIhmQs5CqwyZUdsR7VhAA0w" target="_blank">
+            My YouTube Channel
+        </a>
+    </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section">
+    <h2>My Skills & Works</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>🔬 Science</h3>
+            <ul>
+                <li>Rolling ball sculpture</li>
+                <li>Experiments</li>
+                <li>Gadget review</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>🎨 Culture</h3>
+            <ul>
+                <li>Singing competitions</li>
+                <li>Drawing & painting</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>🏏 Sports</h3>
+            <ul>
+                <li>Badminton</li>
+                <li>Cricket</li>
+                <li>Martial arts</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- VIDEOS -->
+<div class="section">
+    <h2>My Project Videos</h2>
+
+    <div class="cards">
+        <a class="card button" href="https://youtube.com/shorts/yxGpYAdU-8w" target="_blank">
+            Rolling Ball Sculpture
+        </a>
+
+        <a class="card button" href="https://youtube.com/shorts/FCeL8dPu6J4" target="_blank">
+            Chain Loop
+        </a>
+
+        <a class="card button" href="https://youtube.com/shorts/vpoSTeKk4RY" target="_blank">
+            Center of Mass
+        </a>
+    </div>
+</div>
+
+<footer style="text-align:center; padding:20px; color:white;">
+    <p>Thanks for visiting 🚀</p>
+</footer>
+
+<!-- JAVASCRIPT SCROLL ANIMATION -->
+<script>
+const elements = document.querySelectorAll(".section, .profile");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+elements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
